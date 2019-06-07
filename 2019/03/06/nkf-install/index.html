@@ -2,19 +2,24 @@
 <html lang="ja">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>明日も猫がかわいい</title>
+<title>文字コードを一括で変換する【Mac】 - 明日も猫がかわいい</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="明日も猫がかわいい">
-<meta property="og:url" content="https://kmnhrn.github.io/blog/index.html">
+    <meta name="description" content="Homebrewからnkfをインストール【前提】Homebrewのインストールインストールがまだの方はこちらからインストールしてください。 文字コードを変換するのに、Homebrew経由でnkfをインストールします。 1$ brew install nkf nkfのオプション一覧文字コードの変換1234-j  JISに変換する-e  EUCに変換する-s  Shift-JISに変換する-w  UT">
+<meta name="keywords" content="Tec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文字コードを一括で変換する【Mac】">
+<meta property="og:url" content="https://kmnhrn.github.io/blog/2019/03/06/nkf-install/index.html">
 <meta property="og:site_name" content="明日も猫がかわいい">
+<meta property="og:description" content="Homebrewからnkfをインストール【前提】Homebrewのインストールインストールがまだの方はこちらからインストールしてください。 文字コードを変換するのに、Homebrew経由でnkfをインストールします。 1$ brew install nkf nkfのオプション一覧文字コードの変換1234-j  JISに変換する-e  EUCに変換する-s  Shift-JISに変換する-w  UT">
 <meta property="og:locale" content="ja">
 <meta property="og:image" content="https://kmnhrn.github.io/blog/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-07T10:01:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="明日も猫がかわいい">
+<meta name="twitter:title" content="文字コードを一括で変換する【Mac】">
+<meta name="twitter:description" content="Homebrewからnkfをインストール【前提】Homebrewのインストールインストールがまだの方はこちらからインストールしてください。 文字コードを変換するのに、Homebrew経由でnkfをインストールします。 1$ brew install nkf nkfのオプション一覧文字コードの変換1234-j  JISに変換する-e  EUCに変換する-s  Shift-JISに変換する-w  UT">
 <meta name="twitter:image" content="https://kmnhrn.github.io/blog/images/og_image.png">
 
 
@@ -90,7 +95,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/blog/">
             
-                <img src="/blog/images/logo.svg" alt="明日も猫がかわいい" height="28">
+                <img src="/blog/images/logo.svg" alt="文字コードを一括で変換する【Mac】" height="28">
             
             </a>
         </div>
@@ -98,7 +103,7 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active" href="/blog/">Home</a>
+                <a class="navbar-item" href="/blog/">Home</a>
                 
                 <a class="navbar-item" href="/blog/archives">Archives</a>
                 
@@ -133,58 +138,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-06-07T09:57:11.000Z">2019-06-07</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/Tec/">Tec</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2分 read (About 348 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-2 is-size-2-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/blog/2019/06/07/acf-post-object-bogo/">ACFの投稿オブジェクト参照で、現在の投稿と同じ言語のもののみを出力させる【Bogo・ACF】</a>
-            
-        </h1>
-        <div class="content">
-            <p>多言語プラグインのBogoを使用していると、多言語の投稿も、普通の投稿と同じ扱いなので、<br>特に日本語と中国語で、タイトルが全く一緒になってどの言語か見分けがつかなくなることがあります。</p>
-<p>このままでは利便性が悪いので、各言語の投稿に絞り込めるよう、クエリーを制御します。</p>
-<h1><span id="実装">実装</span></h1><p>ACF側で投稿オブジェクトのクエリーを制御するフックが用意されているのでそれを使用します。<br><a href="https://www.advancedcustomfields.com/resources/acf-fields-post_object-query/" target="_blank" rel="noopener">ACF | acf/fields/post_object/query</a></p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function my_post_object_query( $args, $field, $post_id ) &#123;</span><br><span class="line">    $locale = get_post_meta( $post_id, &apos;_locale&apos;, true );</span><br><span class="line"></span><br><span class="line">    $args[&apos;post_status&apos;] = &apos;publish&apos;;</span><br><span class="line">    $args[&apos;meta_key&apos;] = &apos;_locale&apos;;</span><br><span class="line">    $args[&apos;meta_value&apos;] = $locale;</span><br><span class="line"></span><br><span class="line">    return $args;</span><br><span class="line">&#125;</span><br><span class="line">add_filter(&apos;acf/fields/post_object/query&apos;, &apos;my_post_object_query&apos;, 10, 3);</span><br></pre></td></tr></table></figure>
-<p>↑このコード例ではすべての投稿オブジェクトに反映されます</p>
-<p>管理画面で<code>get_locale()</code>すると、現在のユーザーが選択している言語情報で取得してしまうので、<br>記事に紐付いているBogoの<code>_locale</code>のカスタムフィールドを確認して、<br>Bogoの<code>meta_key</code>に代入し、絞り込んでいます。</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-content article ">
         
@@ -205,7 +159,7 @@
         
         <h1 class="title is-size-2 is-size-2-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blog/2019/03/06/nkf-install/">文字コードを一括で変換する【Mac】</a>
+                文字コードを一括で変換する【Mac】
             
         </h1>
         <div class="content">
@@ -222,64 +176,21 @@
 
         </div>
         
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-03T14:20:53.000Z">2019-03-03</time>
-                
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/blog/categories/Tec/">Tec</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/blog/tags/Tec/">Tec</a>
                 </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2分 read (About 360 words)
-                </span>
-                
-                
             </div>
         </div>
         
-        <h1 class="title is-size-2 is-size-2-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/blog/2019/03/03/icarus_error/">Hexoのテーマ：icarusインストール時に出たエラーの解決法</a>
-            
-        </h1>
-        <div class="content">
-            <!-- toc -->
-<ul>
-<li><a href="#icarusの導入時につまずく">icarusの導入時につまずく</a></li>
-<li><a href="#nodeをアップデート">nodeをアップデート</a></li>
-</ul>
-<!-- tocstop -->
-<h2><span id="icarusの導入時につまずく">icarusの導入時につまずく</span></h2><p>themesディレクトリにicarusをインストールしたまではよかったものの、</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>すると、以下のようなエラーを吐いてしまいました。</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">ERROR Script load failed: themes/icarus/scripts/index.js</span><br><span class="line">/Users/xxxx/project/blog/blog/themes/icarus/includes/specs/config.spec.js:14</span><br><span class="line">    ...require(<span class="hljs-string">'./meta.spec'</span>),</span><br><span class="line">    ^^^</span><br><span class="line">SyntaxError: Unexpected token ...</span><br><span class="line">    at Object.exports.runInThisContext (vm.js:76:16)</span><br><span class="line">    at Module._compile (module.js:542:28)</span><br><span class="line">    at Object.Module._extensions..js (module.js:579:10)</span><br><span class="line">    at Module.load (module.js:487:32)</span><br><span class="line">    at tryModuleLoad (module.js:446:12)</span><br><span class="line">    at Function.Module._load (module.js:438:3)</span><br><span class="line">    at Module.require (module.js:497:17)</span><br><span class="line">    at require (internal/module.js:20:19)</span><br><span class="line">    at Object.&lt;anonymous&gt; (/Users/xxxx/project/blog/blog/themes/icarus/includes/tasks/check_config.js:8:18)</span><br><span class="line">    at Module._compile (module.js:570:32)</span><br><span class="line">    at Object.Module._extensions..js (module.js:579:10)</span><br><span class="line">    at Module.load (module.js:487:32)</span><br><span class="line">    at tryModuleLoad (module.js:446:12)</span><br><span class="line">    at Function.Module._load (module.js:438:3)</span><br><span class="line">    at Module.require (module.js:497:17)</span><br><span class="line">    at require (/Users/xxxx/project/blog/blog/node_modules/hexo/lib/hexo/index.js:227:21)</span><br><span class="line">    at /Users/xxxx/project/blog/blog/themes/icarus/scripts/index.js:3:1</span><br><span class="line">    at fs.readFile.then.script (/Users/xxxx/project/blog/blog/node_modules/hexo/lib/hexo/index.js:240:12)</span><br><span class="line">    at tryCatcher (/Users/xxxx/project/blog/blog/node_modules/bluebird/js/release/util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (/Users/xxxx/project/blog/blog/node_modules/bluebird/js/release/promise.js:512:31)</span><br><span class="line">    at Promise._settlePromise (/Users/xxxx/project/blog/blog/node_modules/bluebird/js/release/promise.js:569:18)</span><br><span class="line">    at Promise._settlePromise0 (/Users/xxxx/project/blog/blog/node_modules/bluebird/js/release/promise.js:614:10)</span><br></pre></td></tr></table></figure>
-<h2><span id="nodeをアップデート">nodeをアップデート</span></h2><p>どうやらnodeのバージョンが古いためエラーを吐いている様子なので、nodebrewでアップデート。</p>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nodebrew use latest</span><br></pre></td></tr></table></figure>
-<p><code>use v11.10.0</code>にすることで、無事コンパイルが通りました。</p>
+        
+        
+        
+<div class="sharethis-inline-share-buttons"></div>
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5ab6f60ace89f00013641890&amp;product=inline-share-buttons" async="async"></script>
 
-        </div>
-        
-        
         
     </div>
 </div>
@@ -288,9 +199,52 @@
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/blog/2019/06/07/acf-post-object-bogo/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">ACFの投稿オブジェクト参照で、現在の投稿と同じ言語のもののみを出力させる【Bogo・ACF】</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blog/2019/03/03/icarus_error/">
+                <span class="level-item">Hexoのテーマ：icarusインストール時に出たエラーの解決法</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">コメント</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://kmnhrn.github.io/blog/2019/03/06/nkf-install/';
+        this.page.identifier = '2019/03/06/nkf-install/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
 </div>
                 
 
@@ -758,7 +712,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/blog/">
                 
-                    <img src="/blog/images/logo.svg" alt="明日も猫がかわいい" height="28">
+                    <img src="/blog/images/logo.svg" alt="文字コードを一括で変換する【Mac】" height="28">
                 
                 </a>
                 <p class="is-size-7">
