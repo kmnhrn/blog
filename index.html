@@ -140,6 +140,56 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-07T09:57:11.000Z">2019-06-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/Tec/">Tec</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2分 read (About 348 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-2 is-size-2-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2019/06/07/acf-post-object-bogo/">ACFの投稿オブジェクト参照で、現在の投稿と同じ言語のもののみを出力させる【Bogo・ACF】</a>
+            
+        </h1>
+        <div class="content">
+            <p>多言語プラグインのBogoを使用していると、多言語の投稿も、普通の投稿と同じ扱いなので、<br>特に日本語と中国語で、タイトルが全く一緒になってどの言語か見分けがつかなくなることがあります。</p>
+<p>このままでは利便性が悪いので、各言語の投稿に絞り込めるよう、クエリーを制御します。</p>
+<h1><span id="実装">実装</span></h1><p>ACF側で投稿オブジェクトのクエリーを制御するフックが用意されているのでそれを使用します。<br><a href="https://www.advancedcustomfields.com/resources/acf-fields-post_object-query/" target="_blank" rel="noopener">ACF | acf/fields/post_object/query</a></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function my_post_object_query( $args, $field, $post_id ) &#123;</span><br><span class="line">    $locale = get_post_meta( $post_id, &apos;_locale&apos;, true );</span><br><span class="line"></span><br><span class="line">    $args[&apos;post_status&apos;] = &apos;publish&apos;;</span><br><span class="line">    $args[&apos;meta_key&apos;] = &apos;_locale&apos;;</span><br><span class="line">    $args[&apos;meta_value&apos;] = $locale;</span><br><span class="line"></span><br><span class="line">    return $args;</span><br><span class="line">&#125;</span><br><span class="line">add_filter(&apos;acf/fields/post_object/query&apos;, &apos;my_post_object_query&apos;, 10, 3);</span><br></pre></td></tr></table></figure>
+<p>↑このコード例ではすべての投稿オブジェクトに反映されます</p>
+<p>管理画面で<code>get_locale()</code>すると、現在のユーザーが選択している言語情報で取得してしまうので、<br>記事に紐付いているBogoの<code>_locale</code>のカスタムフィールドを確認して、<br>Bogoの<code>meta_key</code>に代入し、絞り込んでいます。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-03-03T14:20:53.000Z">2019-03-03</time>
                 
                 <div class="level-item">
@@ -234,7 +284,7 @@
                         投稿
                     </p>
                     <p class="title has-text-weight-normal">
-                        1
+                        2
                     </p>
                 </div>
             </div>
@@ -254,7 +304,7 @@
                         タグ
                     </p>
                     <p class="title has-text-weight-normal">
-                        1
+                        2
                     </p>
                 </div>
             </div>
@@ -339,7 +389,7 @@
                 <span class="level-item">Tec</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li>
             </ul>
@@ -353,7 +403,7 @@
         <h3 class="menu-label">
             タグクラウド
         </h3>
-        <a href="/blog/tags/Hexo/" style="font-size: 10px;">Hexo</a>
+        <a href="/blog/tags/Bogo/" style="font-size: 10px;">Bogo</a> <a href="/blog/tags/Hexo/" style="font-size: 10px;">Hexo</a>
     </div>
 </div>
 
@@ -367,6 +417,25 @@
         <h3 class="menu-label">
             最近の記事
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2019/06/07/acf-post-object-bogo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="ACFの投稿オブジェクト参照で、現在の投稿と同じ言語のもののみを出力させる【Bogo・ACF】">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-07T09:57:11.000Z">2019-06-07</time></div>
+                    <a href="/blog/2019/06/07/acf-post-object-bogo/" class="has-link-black-ter is-size-6">ACFの投稿オブジェクト参照で、現在の投稿と同じ言語のもののみを出力させる【Bogo・ACF】</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/Tec/">Tec</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -400,6 +469,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/blog/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/blog/archives/2019/03/">
                 <span class="level-start">
                     <span class="level-item">三月 2019</span>
@@ -422,6 +502,13 @@
                 タグ
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Bogo/">
+                        <span class="tag">Bogo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Hexo/">
@@ -455,6 +542,25 @@
         
         <article class="media">
             
+            <a href="/blog/2019/06/07/acf-post-object-bogo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="ACFの投稿オブジェクト参照で、現在の投稿と同じ言語のもののみを出力させる【Bogo・ACF】">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-07T09:57:11.000Z">2019-06-07</time></div>
+                    <a href="/blog/2019/06/07/acf-post-object-bogo/" class="has-link-black-ter is-size-6">ACFの投稿オブジェクト参照で、現在の投稿と同じ言語のもののみを出力させる【Bogo・ACF】</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/Tec/">Tec</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/blog/2019/03/03/icarus_error/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="Hexoのテーマ：icarusインストール時に出たエラーの解決法">
@@ -485,6 +591,17 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/blog/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/blog/archives/2019/03/">
                 <span class="level-start">
                     <span class="level-item">三月 2019</span>
@@ -507,6 +624,13 @@
                 タグ
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/blog/tags/Bogo/">
+                        <span class="tag">Bogo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/Hexo/">
